@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2f2a402c-8cd5-4072-9acb-873c17f251ca">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="MaHD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT dbo.HoaDon.MaHD, dbo.KhachHang.TenKH, dbo.HoaDon.NgayMua, dbo.HoaDon.NgayLap, dbo.NhanVien.TenNV
+FROM   dbo.HoaDon INNER JOIN
+             dbo.KhachHang ON dbo.HoaDon.MaKH = dbo.KhachHang.MaKH INNER JOIN
+             dbo.NhanVien ON dbo.HoaDon.MaNV = dbo.NhanVien.MaNV
+WHERE dbo.HoaDon.MaHD = $P{MaHD}]]>
+	</queryString>
+	<field name="MaHD" class="java.lang.String"/>
+	<field name="TenKH" class="java.lang.String"/>
+	<field name="NgayMua" class="java.lang.String"/>
+	<field name="NgayLap" class="java.lang.String"/>
+	<field name="TenNV" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="89" splitType="Stretch">
+			<staticText>
+				<reportElement x="94" y="69" width="302" height="20" uuid="16b4c495-a1cd-496c-bd41-e6f8a79ee9dd"/>
+				<textElement>
+					<font size="11" pdfFontName="Times-Roman" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[Website: www.nhomdoanjava.com.vn]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="10" width="84" height="48" uuid="66fe6b87-e64c-41f0-aabf-d670b8780337"/>
+				<imageExpression><![CDATA["src\\Resources\\Logo_3.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="94" y="50" width="302" height="20" uuid="53e16418-2603-4b39-a2e3-adc7bbddd321"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="11" pdfFontName="Times-Roman" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[ĐT: 0909009009]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="94" y="30" width="302" height="20" uuid="d9da0e73-1638-4aa7-adf2-5993b20c1cc3"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="11" pdfFontName="Times-Roman" pdfEncoding="Cp1258" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Địa chỉ:  140 Lê Trọng Tấn, Tân Phú, TPHCM]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="457" y="10" width="108" height="20" uuid="6f4e15f1-4944-41ba-984b-d27dd3465a95"/>
+				<textElement>
+					<font fontName="Tahoma" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="94" y="10" width="302" height="20" uuid="f65211d0-5c3c-4000-a4d5-20314f26a234"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="Times-Roman" pdfEncoding="Cp1258" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Công ty TNHH ba thành viên Mobile]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="416" y="10" width="41" height="20" uuid="8e86cd84-826f-4ce4-a6b5-dfffa7a71b67"/>
+				<textElement>
+					<font fontName="Tahoma" size="12" isBold="true" pdfFontName="Times-Roman" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[Ngày:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="555" height="36" uuid="ad456866-fce7-486c-8f8f-40e471623480"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="18" isBold="true" pdfFontName="Times-Roman" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[THÔNG TIN HÓA ĐƠN MUA HÀNG]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="59" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="23" width="100" height="20" uuid="2b4a7865-4f24-4da1-8b7d-be61a2e7ce0a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mã hóa đơn]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="78" y="23" width="122" height="20" uuid="9ac7e369-dbd7-422a-9da0-382cc31b2d3e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Khách hàng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="23" width="100" height="20" uuid="20df3ce6-1b6f-4ef3-abdc-3cc3fa3bf13d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ngày mua]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="302" y="23" width="155" height="20" uuid="e4847db3-8782-4de0-b8a2-947ff9f3d591"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nhân Viên]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="457" y="23" width="100" height="20" uuid="e6149fd8-c5be-4fdc-9d1b-946dc0bdaa9d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ngày lập]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="47" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="d9fbd3dc-1e9f-4d45-82d9-63d18dd46d7d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MaHD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="0" width="122" height="20" uuid="07685045-2bc4-4f32-b1da-62642311a47b"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TenKH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="20" uuid="1a305c3e-f684-4eba-bffd-d1f7d5aef498"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NgayMua}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="155" height="20" uuid="fd098830-ca8e-4734-8367-fdd42d407b59"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TenNV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="d4d85b85-7dc1-4656-a2b7-54a8612bb3c3"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NgayLap}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="24" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="18" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement x="439" y="20" width="118" height="20" uuid="4668c3be-1993-4280-97e9-867c78df709b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="14" pdfFontName="Times-Roman" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[(Ký, họ tên)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="437" y="0" width="118" height="20" uuid="bae7648e-bc18-42ac-b219-71f0dfd657ad"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="14" pdfFontName="Times-Roman" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[Người Lập Phiếu]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
